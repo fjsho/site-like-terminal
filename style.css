@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.terminal-header {
+    background: linear-gradient(180deg, #504b45 0%, #3c3836 100%);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.terminal-button:hover {
+    transform: scale(1.1);
+}
+
+.terminal-button.close {
+    background: #ff5f56;
+}
+
+.terminal-button.minimize {
+    background: #ffbd2e;
+}
+
+.terminal-button.maximize {
+    background: #27c93f;
+}
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+    color: #d4d4d4;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.terminal-body {
+    background: #1e1e1e;
+    padding: 20px;
+    height: 500px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.terminal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #2e2e2e;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.terminal-output {
+    color: #d4d4d4;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.terminal-line {
+    margin: 2px 0;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.prompt {
+    color: #98c379;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.command {
+    color: #61afef;
+}
+
+.output {
+    color: #abb2bf;
+}
+
+.error {
+    color: #e06c75;
+}
+
+.success {
+    color: #98c379;
+}
+
+.warning {
+    color: #e5c07b;
+}
+
+.info {
+    color: #56b6c2;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #d4d4d4;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    flex: 1;
+    caret-color: #98c379;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #98c379;
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+.ascii-art {
+    color: #56b6c2;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 10px 0;
+}
+
+.help-text {
+    color: #868e96;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.directory {
+    color: #61afef;
+    font-weight: bold;
+}
+
+.file {
+    color: #d4d4d4;
+}
+
+.executable {
+    color: #98c379;
+}

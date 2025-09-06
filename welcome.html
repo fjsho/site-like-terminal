@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ターミナル風なwebサイト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <button class="terminal-button close"></button>
+                <button class="terminal-button minimize"></button>
+                <button class="terminal-button maximize"></button>
+            </div>
+            <div class="terminal-title">user@localhost:~</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <div class="terminal-output" id="terminal-output">
+                <div class="ascii-art">
+ ╔════════════════════════════════════════════════╗
+ ║  Web Site Like Terminal v0.0.1                 ║
+ ║  This page was mostly implemented by Claude!   ║
+ ╚════════════════════════════════════════════════╝
+                </div>
+                <div class="terminal-line">
+                    <span class="success">Welcome!</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="info">System ready. Please enjoy!</span>
+                </div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">user@localhost:~$</span>
+                <a href="https://github.com/fjsho/site-like-terminal" class="terminal-input">Enter the github repository</a>
+                <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

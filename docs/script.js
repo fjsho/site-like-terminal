@@ -15,7 +15,7 @@ const commands = {
   <span class="command">help</span>        - Show this help message
   <span class="command">date</span>        - Display current date and time
   <span class="command">about</span>      - Display about this web site
-  <span class="command">exit</span>          - Close the terminal and go to the github page`;
+  <span class="command">exit</span>          - Close the terminal and go to my github profile`;
             terminalOutput.appendChild(helpOutput);
             return null;
         }
@@ -47,7 +47,10 @@ const commands = {
     exit: {
         description: 'Exit the terminal',
         execute: () => {
-            return '<span class="warning">Goodbye! Terminal session ended.</span>';
+            setTimeout(() => {
+                window.open('https://github.com/fjsho', '_blank');
+            }, 2000);
+            return '<span class="warning">Goodbye! Redirecting to My GitHub Profile...</span>';
         }
     }
 };

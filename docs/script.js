@@ -9,12 +9,15 @@ const commands = {
     help: {
         description: 'Show available commands',
         execute: () => {
-            return `
-<span class="success">Available Commands:</span>
-  <span class="command">help</span>     - Show this help message
-  <span class="command">date</span>     - Display current date and time
-  <span class="command">about</span>    - Display about this weh site
-  <span class="command">exit</span>     - Close the terminal and go to the github page`;
+            const helpOutput = document.createElement('div');
+            helpOutput.className = 'command-output';
+            helpOutput.innerHTML = `<span class="success">Available Commands:</span>
+  <span class="command">help</span>        - Show this help message
+  <span class="command">date</span>        - Display current date and time
+  <span class="command">about</span>      - Display about this web site
+  <span class="command">exit</span>          - Close the terminal and go to the github page`;
+            terminalOutput.appendChild(helpOutput);
+            return null;
         }
     },
     date: {
@@ -35,9 +38,10 @@ const commands = {
     about: {
         description: 'Display about this page',
         execute: () => {
-            return `<span class="info">Web Terminal Project
-This is a web-based terminal emulator built with HTML, CSS, and JavaScript.
-Feel free to explore and use the available commands!</span>`;
+            return `<span class="info">terminal-style-websiteについて
+ご訪問いただきありがとうございます。このサイトは習作で作成したターミナル風のwebサイトです。
+フロントエンドが苦手なので、Claudeに"ターミナルっぽいサイト作って"と依頼したらそれっぽいものが出来上がりました。
+学習用に使いつつ、何かしら機能を持たせていけたら面白いかなと思っています。</span>`;
         }
     },
     exit: {

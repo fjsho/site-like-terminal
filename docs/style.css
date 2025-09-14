@@ -222,3 +222,31 @@ body {
 .executable {
     color: #98c379;
 }
+
+.command-output {
+    line-height: 1.3;
+    margin: 2px 0;
+    white-space: pre-line;
+}
+
+.command-output .command {
+    color: #61afef;
+    margin-right: 8px;
+}
+
+.command-output .success {
+    color: #98c379;
+    font-weight: bold;
+}
+
+.command-output .info {
+    color: #56b6c2;
+}
+
+.command-output .warning {
+    color: #e5c07b;
+}
+
+.command-output .error {
+    color: #e06c75;
+}

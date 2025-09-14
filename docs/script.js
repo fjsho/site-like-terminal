@@ -12,27 +12,9 @@ const commands = {
             return `
 <span class="success">Available Commands:</span>
   <span class="command">help</span>     - Show this help message
-  <span class="command">clear</span>    - Clear the terminal screen
   <span class="command">date</span>     - Display current date and time
-  <span class="command">echo</span>     - Display a message
-  <span class="command">ls</span>       - List directory contents
-  <span class="command">pwd</span>      - Print working directory
-  <span class="command">whoami</span>   - Display current user
-  <span class="command">cat</span>      - Display file contents
-  <span class="command">mkdir</span>    - Create a directory
-  <span class="command">touch</span>    - Create a file
-  <span class="command">rm</span>       - Remove files
-  <span class="command">cd</span>       - Change directory
-  <span class="command">history</span>  - Show command history
-  <span class="command">neofetch</span> - Display system information
-  <span class="command">exit</span>     - Close the terminal`;
-        }
-    },
-    clear: {
-        description: 'Clear the terminal',
-        execute: () => {
-            terminalOutput.innerHTML = '';
-            return null;
+  <span class="command">about</span>    - Display about this weh site
+  <span class="command">exit</span>     - Close the terminal and go to the github page`;
         }
     },
     date: {
@@ -50,107 +32,12 @@ const commands = {
             })}</span>`;
         }
     },
-    echo: {
-        description: 'Display a message',
-        execute: (args) => {
-            return args.join(' ') || '';
-        }
-    },
-    ls: {
-        description: 'List directory contents',
+    about: {
+        description: 'Display about this page',
         execute: () => {
-            return `<span class="directory">Documents/</span>  <span class="directory">Downloads/</span>  <span class="directory">Pictures/</span>  <span class="directory">Videos/</span>
-<span class="file">README.md</span>  <span class="executable">script.sh</span>  <span class="file">config.json</span>  <span class="file">notes.txt</span>`;
-        }
-    },
-    pwd: {
-        description: 'Print working directory',
-        execute: () => {
-            return '<span class="info">/home/user</span>';
-        }
-    },
-    whoami: {
-        description: 'Display current user',
-        execute: () => {
-            return '<span class="info">user</span>';
-        }
-    },
-    cat: {
-        description: 'Display file contents',
-        execute: (args) => {
-            if (!args[0]) {
-                return '<span class="error">cat: missing file operand</span>';
-            }
-            if (args[0] === 'README.md') {
-                return `<span class="output"># Web Terminal Project
+            return `<span class="info">Web Terminal Project
 This is a web-based terminal emulator built with HTML, CSS, and JavaScript.
 Feel free to explore and use the available commands!</span>`;
-            }
-            return `<span class="error">cat: ${args[0]}: No such file or directory</span>`;
-        }
-    },
-    mkdir: {
-        description: 'Create a directory',
-        execute: (args) => {
-            if (!args[0]) {
-                return '<span class="error">mkdir: missing operand</span>';
-            }
-            return `<span class="success">Directory '${args[0]}' created successfully</span>`;
-        }
-    },
-    touch: {
-        description: 'Create a file',
-        execute: (args) => {
-            if (!args[0]) {
-                return '<span class="error">touch: missing file operand</span>';
-            }
-            return `<span class="success">File '${args[0]}' created successfully</span>`;
-        }
-    },
-    rm: {
-        description: 'Remove files',
-        execute: (args) => {
-            if (!args[0]) {
-                return '<span class="error">rm: missing operand</span>';
-            }
-            return `<span class="warning">File '${args[0]}' removed</span>`;
-        }
-    },
-    cd: {
-        description: 'Change directory',
-        execute: (args) => {
-            if (!args[0] || args[0] === '~') {
-                return '<span class="info">Changed to home directory</span>';
-            }
-            return `<span class="info">Changed directory to ${args[0]}</span>`;
-        }
-    },
-    history: {
-        description: 'Show command history',
-        execute: () => {
-            if (commandHistory.length === 0) {
-                return '<span class="info">No commands in history</span>';
-            }
-            return commandHistory.map((cmd, index) => 
-                `<span class="output">  ${index + 1}  ${cmd}</span>`
-            ).join('\n');
-        }
-    },
-    neofetch: {
-        description: 'Display system information',
-        execute: () => {
-            return `<span class="info">
-       _____       <span class="output">user@localhost</span>
-      /     \\      <span class="output">--------------</span>
-     /  ^ ^  \\     <span class="success">OS:</span> Web OS 1.0
-    |   > <   |    <span class="success">Host:</span> Browser Terminal
-    |   ___   |    <span class="success">Kernel:</span> JavaScript ES6
-     \\_____/      <span class="success">Uptime:</span> ${Math.floor(Math.random() * 100)} hours
-                   <span class="success">Shell:</span> web-bash 5.0
-                   <span class="success">Terminal:</span> WebTerm v1.0
-                   <span class="success">CPU:</span> Intel Core i7
-                   <span class="success">Memory:</span> 16GB RAM
-</span>`;
         }
     },
     exit: {
@@ -173,7 +60,7 @@ terminalInput.addEventListener('keydown', (e) => {
             // Add command to output
             const commandLine = document.createElement('div');
             commandLine.className = 'terminal-line';
-            commandLine.innerHTML = `<span class="prompt">user@localhost:~$</span> <span class="command">${input}</span>`;
+            commandLine.innerHTML = `<span class="prompt">terminal-style-website:~$</span> <span class="command">${input}</span>`;
             terminalOutput.appendChild(commandLine);
             
             // Process command
@@ -190,7 +77,7 @@ terminalInput.addEventListener('keydown', (e) => {
             } else if (input !== '') {
                 const errorLine = document.createElement('div');
                 errorLine.className = 'terminal-line';
-                errorLine.innerHTML = `<span class="error">bash: ${cmd}: command not found</span>`;
+                errorLine.innerHTML = `<span class="error">${cmd}: command not found</span>`;
                 terminalOutput.appendChild(errorLine);
             }
             

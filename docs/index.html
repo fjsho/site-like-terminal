@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ターミナル風なwebサイト</title>
+    <title>terminal-style-website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <button class="terminal-button minimize"></button>
                 <button class="terminal-button maximize"></button>
             </div>
-            <div class="terminal-title">user@localhost:~</div>
+            <div class="terminal-title">terminal-style-website:~$</div>
         </div>
         <div class="terminal-body" id="terminal-body">
             <div class="terminal-output" id="terminal-output">
@@ -32,8 +32,8 @@
                 </div>
             </div>
             <div class="terminal-input-line">
-                <span class="prompt">user@localhost:~$</span>
-                <a href="https://github.com/fjsho/site-like-terminal" class="terminal-input">Enter the github repository</a>
+                <span class="prompt">terminal-style-website:~$</span>
+                <input type="text" class="terminal-input" id="terminal-input" autofocus>
                 <span class="cursor"></span>
             </div>
         </div>
